@@ -15,21 +15,20 @@ int main(){
     };
     //the corresponding points for each index in the 2d array
     const char POINT_INDEX[ARR_LEN] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'};
-    printf("    a   b  [c] [d]  e   f   g   h   i\n");
+    printf("    a    b    c    d    e    f    g    h    i\n");
     for(int row = 0; row < ARR_LEN; row++){
-        //index 2 and 3 are points 'c' and 'd' which are charging stations
-        if(row == 2 || row == 3){
-            printf("[%c] ", POINT_INDEX[row]);
-        }else{
-            printf("%*c  ", 2, POINT_INDEX[row]);
-        }
-
+        printf("%2c", POINT_INDEX[row]);
         for(int col = 0; col < ARR_LEN; col++){
-            printf("%d   ", road_networks[row][col]);
+            int is_path = road_networks[row][col];
+            //column 2 and 3 indicate charging stations 'c' and 'd' as destinations
+            if((col == 2 || col == 3) && is_path){
+                printf(" [%d] ", is_path);
+            }else{
+                printf("  %d  ", is_path);
+            }
         }
         printf("\n");
     }
-    
     int location_index;
     printf("Which point are you located?\n0 - A\t3 - D\t6 - G\n1 - B\t4 - E\t7 - H\n2 - C\t5 - F\t8 - I\nEnter your location: ");
     scanf("%d", &location_index);
