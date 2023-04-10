@@ -14,9 +14,11 @@ int main(){
         printf("  ");
     }
     for(int day = 1; day <= monthDays; day++){
-        //skip a line when day, adjusted with starting day, is divisible by 7 because there are 7 days per week
+        //startDay-1 to count the skipped days then -1 again 
+        //because we go to next line only when we reach next Sunday, 
+        //this formula calculates every day that reaches Sunday.
         //also avoid skipping line when the starting day is 1 
-        if((day-startDay)%7== 0 && day-startDay != 0){
+        if((startDay-2+day)%7 == 0 && day-startDay != 0){
             printf("\n");
         }
         printf("%2d  ", day);
