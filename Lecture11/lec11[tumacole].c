@@ -35,7 +35,7 @@ int main() {
     //each element in the array represents the number of occurrences
     //of a letter in a word; the indexes are equivalent to the letters in 
     //the alphabet (0 = A, 1 = B, 2 = C, etc.)
-    int letters[26] = {0}, occurrences1[26] = {0}, occurrences2[26] = {0};
+    int occurrences1[26] = {0}, occurrences2[26] = {0};
     printf("Enter first word: ");
     scan_word(occurrences1);
     printf("Enter second word: ");
